@@ -103,7 +103,7 @@ export default {
             } catch (error) {
                 this.$ionic.alertController
                     .create({
-                        header: "Campo requerido",
+                        header: "Error",
                         message: error,
                         buttons: ["OK"]
                     })

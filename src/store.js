@@ -6,7 +6,11 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
     state: {
         items: [],
-        activeCheck: []
+        activeCheck: {
+            check: [],
+            expenses: []
+        },
+        checkHistory: []
     },
     mutations: {
         refreshData(state, data) {
@@ -20,7 +24,7 @@ const store = new Vuex.Store({
     actions: {
         addItem(context, data) {
             context.state.items.push(data);
-            context.state.activeCheck.push({
+            context.state.activeCheck.check.push({
                 itemId: data.id,
                 units: data.cant
             });
@@ -32,6 +36,43 @@ const store = new Vuex.Store({
             items = items.filter(i => i.id !== id);
 
             context.commit("refreshData", { items });
+        },
+
+        addExpenditure(context, data) {
+            context.state.items.push(data);
+            context.state.activeCheck.check.push({
+                itemId: data.id,
+                units: data.cant
+            });
+
+            context.commit("refreshData", context.state);
+        },
+        storeCheck(context, check) {
+            let items = context.state.items;
+            let activeCheck = {
+                check: [],
+                expenses: []
+            };
+
+            items.forEach((item, index) => {
+                let ac = context.state.activeCheck.check.find(
+                    i => i.itemId == item.id
+                );
+
+                item.cant = ac.units;
+
+                activeCheck.check.push({
+                    itemId: item.id,
+                    units: item.cant
+                });
+                items[index] = item;
+            });
+
+            context.commit("refreshData", {
+                checkHistory: check,
+                activeCheck,
+                items
+            });
         }
     }
 });

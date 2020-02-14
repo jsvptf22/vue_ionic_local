@@ -19,7 +19,7 @@
                             <th>Costo</th>
                             <th>Precio mínimo</th>
                             <th>Precio público</th>
-                            <th>Borrar</th>
+                            <th>Eliminar</th>
                         </tr>
                     </thead>
                     <tbody>

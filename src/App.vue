@@ -16,26 +16,38 @@
         </ion-content>
         <ion-footer>
             <ion-toolbar>
-                <ion-buttons>
-                    <ion-button @click="openTab('/items', 'Productos')">
-                        <ion-icon slot="icon-only" name="add-circle"></ion-icon>
-                    </ion-button>
-                    <ion-button @click="openTab('/check', 'Hacer inventario')">
-                        <ion-icon slot="icon-only" name="checkbox"></ion-icon>
-                    </ion-button>
-                </ion-buttons>
-                <ion-buttons slot="primary">
-                    <ion-button @click="openTab('/profits', 'Beneficios')">
-                        <ion-icon slot="icon-only" name="cash"></ion-icon>
-                    </ion-button>
-
-                    <ion-button @click="openTab('/state', 'Balance')">
-                        <ion-icon
-                            slot="icon-only"
-                            name="trending-up"
-                        ></ion-icon>
-                    </ion-button>
-                </ion-buttons>
+                <div class="row">
+                    <div class="col-4">
+                        <ion-button
+                            @click="openTab('/items', 'Productos')"
+                            expand="block"
+                        >
+                            <ion-icon
+                                slot="icon-only"
+                                name="add-circle"
+                            ></ion-icon>
+                        </ion-button>
+                    </div>
+                    <div class="col-4">
+                        <ion-button
+                            @click="openTab('/check', 'Hacer inventario')"
+                            expand="block"
+                        >
+                            <ion-icon
+                                slot="icon-only"
+                                name="checkbox"
+                            ></ion-icon>
+                        </ion-button>
+                    </div>
+                    <div class="col-4">
+                        <ion-button
+                            @click="openTab('/history', 'Historial')"
+                            expand="block"
+                        >
+                            <ion-icon slot="icon-only" name="cash"></ion-icon>
+                        </ion-button>
+                    </div>
+                </div>
             </ion-toolbar>
         </ion-footer>
     </ion-app>

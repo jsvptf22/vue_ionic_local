@@ -5,14 +5,13 @@ Vue.use(VueRouter);
 
 import Check from "./components/Check";
 import Items from "./components/Items";
-import Profits from "./components/Profits";
-import State from "./components/State";
+import History from "./components/History";
 
 const routes = [
     { path: "/items", component: Items },
     { path: "/check", component: Check },
-    { path: "/profits", component: Profits },
-    { path: "/state", component: State }
+    { path: "/history", component: History },
+    { path: "/", component: Items }
 ];
 
 const router = new VueRouter({
